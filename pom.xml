@@ -1,0 +1,38 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>com.coriant.dcn-manager</groupId>
+		<artifactId>dcn-manager</artifactId>
+		<version>5.1.232-SNAPSHOT</version>
+		<relativePath>../</relativePath>
+	</parent>
+
+	<artifactId>server</artifactId>
+	<name>DCN Manager Server</name>
+	<packaging>pom</packaging>
+
+	<modules>
+		<module>commands</module>
+		<module>composables</module>		
+		<module>connectors</module>
+		<module>core</module>
+		<module>server-test-utils</module>
+		<module>server-ne-identification</module>
+		<module>server-i18n</module>
+		<module>import-export-commands</module>
+		<module>import-export-composables</module>		
+		<module>import-export-core</module>
+	</modules>
+
+	<dependencies>
+		<dependency>
+			<groupId>com.google.guava</groupId>
+			<artifactId>guava</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+		</dependency>
+	</dependencies>
+</project>
