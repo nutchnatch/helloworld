@@ -1,0 +1,7 @@
+@ECHO OFF
+
+:: Set Java variable
+:: SET "JAVA_HOME=C:\APPS\IC\ORACLEJDK7.0_51"
+SET MAVEN_OPTS="-Duser.language=en"
+
+C:\APPS\IC\MAVEN-3.2.1\bin\mvn --settings C:\APPS\IC\MAVEN-3.2.1\conf\settings.xml -DskipTests=true -P no-source-code-generation clean install > build.log
