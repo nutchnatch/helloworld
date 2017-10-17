@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.coriant.bicnet.reportm</groupId>
+    <artifactId>report-manager</artifactId>
+    <version>2.1.92-SNAPSHOT</version>
+    <name>Report Manager</name>
+    <packaging>pom</packaging>
+
+    <parent>
+        <groupId>com.coriant.bicnet</groupId>
+        <artifactId>bicnet-parent-pom</artifactId>
+        <version>5.0.42</version>
+        <relativePath />
+    </parent>
+
+    <properties>
+        <bicnet-component-type>ReportManager</bicnet-component-type>
+        <gensrc-dir>${basedir}/gensrc</gensrc-dir>
+        <generated-sources-dir>${gensrc-dir}/main/java</generated-sources-dir>
+        <generated-resources-dir>${gensrc-dir}/main/resources</generated-resources-dir>
+        <generated-test-sources-dir>${gensrc-dir}/test/java</generated-test-sources-dir>
+        <generated-test-resources-dir>${gensrc-dir}/test/resources</generated-test-resources-dir>
+        
+        <immutables>2.3.7</immutables>
+    </properties>
+
+    <scm>
+        <connection>${scm.connection.base}/tnms_code/tnms/report_m/trunk</connection>
+        <developerConnection>${scm.connection.base}/tnms_code/tnms/report_m/trunk</developerConnection>
+        <url>${scm.connection.base}/tnms_code/tnms/report_m</url>
+    </scm>
+
+    <modules>
+        <module>api</module>
+        <module>client</module>
+        <module>design</module>
+        <module>release</module>
+        <module>server</module>
+    </modules>
+
+    <build>
+        <plugins>
+            <!-- BCB-Version property -->
+            <plugin>
+                <groupId>com.coriant.tnms.maven.plugins</groupId>
+                <artifactId>tnms-maven-plugin</artifactId>
+            </plugin>
+
+        </plugins>
+    </build>
+    
+    <dependencies>
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.hamcrest</groupId>
+            <artifactId>hamcrest-all</artifactId>
+            <version>1.3</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-all</artifactId>
+            <version>1.9.5</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+</project>
