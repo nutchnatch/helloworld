@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.bnpp.cardif.sugar</groupId>
+	<artifactId>sugar</artifactId>
+	<version>1.1.0-SNAPSHOT</version>
+	<name>Sugar</name>
+	<packaging>pom</packaging>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
+
+		<spring-boot.version>1.5.9.RELEASE</spring-boot.version>
+		<spring-data.version>1.2.1.RELEASE</spring-data.version>
+		<spring-security-saml2.version>1.0.2.RELEASE</spring-security-saml2.version>
+		<opensaml.version>2.6.4</opensaml.version>
+		<apache.cxf.version>3.1.14</apache.cxf.version>
+		<slf4j.version>1.7.5</slf4j.version>
+		<logback.version>1.0.13</logback.version>
+		<oracle.version>12.1.0.2</oracle.version>
+		<mockito.version>1.9.5</mockito.version>
+		<jstl.version>1.2</jstl.version>
+		<commons-io.version>2.5</commons-io.version>
+		<ehcache.version>2.6.11</ehcache.version>
+		<springfox-version>2.7.0</springfox-version>
+
+		<flower.version>2.0.15</flower.version>
+		<arondor-common-reflection.version>0.2.1</arondor-common-reflection.version>
+		<arender.version>3.0.0-6</arender.version>
+		<arender.version.impl>3.0.7</arender.version.impl>
+		<arender.api.version>3.0.0-6</arender.api.version>
+		<arender.tools.version>3.0.7</arender.tools.version>
+		<arondor-common-ehmap.version>2.0.5</arondor-common-ehmap.version>
+		<arondor-common-mbean.version>2.1.11</arondor-common-mbean.version>
+
+		<TSPtomcat.version>8.5.12.0</TSPtomcat.version>
+		<TSP-common-install-config.version>1.0.2.3</TSP-common-install-config.version>
+		<TSP-common-install-scripts.version>1.0.10.6</TSP-common-install-scripts.version>
+		<sugar-standalone-install-scripts.version>1.0.7.6</sugar-standalone-install-scripts.version>
+		<sugar-standalone-install-config.version>1.0.7.5</sugar-standalone-install-config.version>
+
+		<sonar.core.codeCoveragePlugin>jacoco</sonar.core.codeCoveragePlugin>
+		<sonar.dynamicAnalysis>true</sonar.dynamicAnalysis>
+		<sonar.exclusions>com/bnpparibas/assurance/**,src/main/webapp/static/vendor.*.bundle.js,src/main/webapp/static/main.*.bundle.js,/src/main/webapp/static/assets/js/tsp-ui-script.js,src/main/webapp/static/polyfills.*.bundle.js</sonar.exclusions>
+		
+	</properties>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<!-- Import dependency management from Spring Boot -->
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-dependencies</artifactId>
+				<version>${spring-boot.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+	<dependencies>
+		<!-- test dependency -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-all</artifactId>
+			<version>${mockito.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<includes>
+					<include>*.xml</include>
+					<include>*.properties</include>
+				</includes>
+				<filtering>true</filtering>
+			</resource>
+			<resource>
+				<directory>src/main/resources</directory>
+				<includes>
+					<include>*.*</include>
+					<include>**/*.*</include>
+				</includes>
+				<filtering>false</filtering>
+			</resource>
+		</resources>
+		<testResources>
+			<testResource>
+				<directory>src/test/resources</directory>
+				<includes>
+					<include>*.xml</include>
+					<include>*.properties</include>
+				</includes>
+				<filtering>true</filtering>
+			</testResource>
+			<testResource>
+				<directory>src/test/resources</directory>
+				<includes>
+					<include>*.*</include>
+					<include>**/*.*</include>
+				</includes>
+				<filtering>false</filtering>
+			</testResource>
+		</testResources>
+
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<version>2.10.4</version>
+				<executions>
+					<execution>
+						<id>attach-javadocs</id>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+						<configuration>
+							<failOnError>false</failOnError>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+
+	<modules>
+		<module>common</module>
+		<module>backend</module>
+		<module>frontend</module>
+		<module>sugar-arender</module>
+		<module>packaging</module>
+	</modules>
+
+	<scm>
+		<connection>scm:git:http://world-tsp-ci-assurance.is.echonet/gitlab/SUGAR/SUGAR-Dev.git</connection>
+		<developerConnection>scm:git:http://world-tsp-ci-assurance.is.echonet/gitlab/SUGAR/SUGAR-Dev.git</developerConnection>
+		<url></url>
+		<tag>HEAD</tag>
+	</scm>
+	<distributionManagement>
+		<snapshotRepository>
+			<id>nexus-snapshots</id>
+			<name>TSP Snapshots</name>
+			<url>http://world-tsp-ci-assurance.is.echonet/nexus/content/repositories/snapshots/</url>
+		</snapshotRepository>
+		<repository>
+			<id>nexus-releases</id>
+			<name>TSP Releases</name>
+			<url>http://world-tsp-ci-assurance.is.echonet/nexus/content/repositories/releases/</url>
+		</repository>
+	</distributionManagement>
+</project>
