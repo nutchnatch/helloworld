@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.bnpp.cardif</groupId>
+    <artifactId>sugar-rest-web</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>Sugar REST Web</name>
+    <description>Provides REST WEB API for Sugar and the Mock app to emulate operations through the API.</description>
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>api-schema</module>
+        <module>api-mock</module>
+        <module>api-testing</module>
+        <module>release</module>
+    </modules>
+
+    <scm>
+        <connection>scm:git:http://world-tsp-ci-assurance.is.echonet/gitlab/SUGAR/sugar-web-api.git</connection>
+        <developerConnection>scm:git:http://world-tsp-ci-assurance.is.echonet/gitlab/SUGAR/sugar-web-api.git</developerConnection>
+        <url></url>
+        <tag></tag>
+    </scm>
+    <distributionManagement>
+        <snapshotRepository>
+            <id>nexus-snapshots</id>
+            <name>TSP Snapshots</name>
+            <url>http://world-tsp-ci-assurance.is.echonet/nexus/content/repositories/snapshots/</url>
+        </snapshotRepository>
+        <repository>
+            <id>nexus-releases</id>
+            <name>TSP Releases</name>
+            <url>http://world-tsp-ci-assurance.is.echonet/nexus/content/repositories/releases/</url>
+        </repository>
+    </distributionManagement>
+</project>
